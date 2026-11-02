@@ -1,0 +1,13 @@
+{
+  "name": "grok-emoji",
+  "version": "1.0.0",
+  "description": "在 Cursor 回复里按 dsh-emoji 的 40 个语义 key 插入 Grok 娘表情图片。",
+  "author": {
+    "name": "FYou87"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/FYou87/cursor-grok-emoji",
+  "repository": "https://github.com/FYou87/cursor-grok-emoji",
+  "keywords": ["emoji", "grok", "dsh-emoji"],
+  "logo": "assets/logo.png"
+}

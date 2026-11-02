@@ -1,0 +1,19 @@
+{
+  "name": "cursor-grok-emoji",
+  "owner": {
+    "name": "FYou87"
+  },
+  "metadata": {
+    "description": "在 Cursor 对话里使用 Grok 娘表情。语义契约与 dsh-emoji 的 40 个 key 相同。"
+  },
+  "plugins": [
+    {
+      "name": "grok-emoji",
+      "source": "plugin",
+      "description": "按情绪在 Cursor 回复中插入 Grok 娘表情图片。",
+      "keywords": ["emoji", "grok", "dsh-emoji"],
+      "category": "productivity",
+      "license": "MIT"
+    }
+  ]
+}

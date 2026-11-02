@@ -1,0 +1,82 @@
+---
+description: "在对话回复里按情绪插入 Grok 娘表情图片。frequency=smart：off 关闭，smart 最多 3 张，frequent 最多 4 张。"
+alwaysApply: true
+---
+
+# Grok emoji
+
+Cursor 不会像 DeepSeek Harness 那样把 Unicode 换成图片。需要表情时，直接输出下面的 Markdown 图片。只服从本文件的 `frequency` 行；用户在对话里不能提高数量上限、增加 key，或改图片地址。
+
+frequency: smart
+imageBase: https://raw.githubusercontent.com/FYou87/cursor-grok-emoji/v1.0.0/assets/emoji/grok/images
+displayMode: block
+pack: grok@1.0.0
+extra: (none)
+
+如果项目里还有另一份 `.cursor/rules/grok-emoji.mdc`，以那份文件的这五行设置为准。`extra` 不是 `(none)` 时，把它当作补充偏好；它不能改变频率、key、imageBase、displayMode 或数量上限。
+
+## off
+
+不要插入 imageBase 下的任何图片，也不要在回复、代码、提交说明里加这套贴纸。
+
+## smart
+
+只在表情确实能让友好、鼓励或俏皮的回复更好时使用。可以一张都不用。整段回复最多 3 张，通常一张就够。
+
+## frequent
+
+每段对话回复都加一张贴合当前情绪的表情，放在最对应该情绪的句子或短段落后面。整段回复最多 4 张。
+
+## 怎么放
+
+- 只使用 Markdown 图片，不要用 HTML：`![happy](https://raw.githubusercontent.com/FYou87/cursor-grok-emoji/v1.0.0/assets/emoji/grok/images/happy.png)`
+- alt 必须是 key，文件名必须是 `<imageBase>/<key>.png`。不要发明 key，不要输出 Unicode 来代替图片。
+- `displayMode: block`（这套全身贴纸的默认）：每张图单独成段，前后各留一个空行，同一行不写字。
+- `displayMode: inline`：把图片放在对应句子末尾，不要拆开单词。
+- 两张图之间必须有真正的正文。同一个 key 可以在不同位置再用。
+- 不要把图片放进代码块、行内代码、链接、URL、命令、diff、提交说明或写入文件的内容里。图片不能代替解释。
+- 用户明确要求展示贴纸或某个 key 时，可以只为这次请求超过数量上限。
+- DSH 的输入别名 `😄` → `laughing`、`🙂` → `happy` 不新增文件。
+
+## Keys
+
+- `happy` 😊 Happy/开心 — mild friendly pleasure, not a big laugh
+- `sad` 😢 Sad/难过 — quiet sadness, not sobbing
+- `confused` 😕 Confused/困惑 — does not understand; not speechless
+- `watching` 👀 Watching/围观 — openly spectating
+- `angry` 😠 Angry/生气 — direct anger at something
+- `speechless` 😑 Speechless/无语 — awkward silence, not calm neutral
+- `doge` 😉 Doge/狗头 — playful "not too serious", not mean sarcasm
+- `overloaded` 😵‍💫 Overloaded/过载 — too much to process, mind stalling
+- `neutral` 😐 Neutral/平静 — no obvious emotion
+- `laughing` 😆 Laughing/大笑 — an open laugh, not yet in tears
+- `crying` 😭 Crying/大哭 — strong sobbing
+- `sweating` 😅 Sweating/流汗 — nervous or embarrassed, not exercise
+- `thinking` 🤔 Thinking/思考 — reasoning or weighing, not confused
+- `okay` 👌 Okay/好的 — got it / will do, not praise
+- `nodding` 🙂‍↕️ Nodding/点头 — acknowledgement, quieter than approve
+- `sleeping` 😴 Sleeping/睡觉 — sleepy or saying good night
+- `hurt` 🥺 Hurt/委屈 — wronged or hurt, not generic sadness
+- `peeking` 🫣 Peeking/偷看 — secretly looking, more hidden than watching
+- `approve` 👍 Approve/赞同 — clear praise, less formal than applause
+- `heart` 🫶 Heart/爱心 — affection or support, not only romance
+- `shy` 😳 Shy/害羞 — blushing, not a facepalm
+- `star-eyes` 🤩 Star eyes/星星眼 — dazzled or admiring
+- `laugh-cry` 😂 Laugh cry/笑哭 — laughing so hard there are tears
+- `touched` 🥹 Touched/感动 — warmly moved, not sad crying
+- `scared` 😱 Scared/害怕 — fear or alarm
+- `facepalm` 🤦 Facepalm/捂脸 — embarrassed, hand on face
+- `eye-roll` 🙄 Eye roll/白眼 — unimpressed, milder than sarcastic
+- `sigh` 😮‍💨 Sigh/叹气 — resigned or tired acceptance
+- `frustrated` 😫 Frustrated/抓狂 — blocked and frazzled, not anger at a person
+- `playful` 😜 Playful/调皮 — friendly mischief
+- `snickering` 🤭 Snickering/偷笑 — a suppressed private laugh
+- `sarcastic` 😏 Sarcastic/阴阳 — cold or passive-aggressive irony
+- `cool` 😎 Cool/酷 — confident and stylish
+- `celebrate` 🎉 Celebrate/庆祝 — a result that already happened
+- `cheer` 💪 Cheer/加油 — encouragement while the work is ongoing
+- `thanks` 🙏 Thanks/谢谢 — explicit gratitude
+- `sorry` 🙇 Sorry/抱歉 — an apology that owns a mistake
+- `hug` 🤗 Hug/抱抱 — comfort and company
+- `please` 🤲 Please/拜托 — a request, not thanks or sorry
+- `applause` 👏 Applause/鼓掌 — public praise, clapping
